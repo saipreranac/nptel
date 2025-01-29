@@ -1,2 +1,9 @@
-# nptel
-iot
+Smart Parking Car System
+A Smart Parking Car System is an IoT-based solution designed to improve parking efficiency by monitoring and managing available spaces in real time. It helps reduce traffic congestion, minimizes the time spent searching for parking, and enhances user convenience. The system uses sensors, cloud connectivity, and mobile applications to automate parking operations and provide instant updates to users.
+The system works by deploying ultrasonic or infrared sensors in parking slots to detect whether a space is occupied or vacant. This data is then sent to a central server, such as Blynk Cloud or Firebase, where it is processed and made available through a mobile application or web dashboard. Users can check real-time parking availability, reserve slots, and receive notifications about parking status changes.
+For enhanced automation, RFID or NFC-based access control systems can be integrated to allow vehicles to enter and exit without manual intervention. Additionally, boom barriers can be controlled automatically to grant access to authorized vehicles. The system can also include digital payment options, enabling users to pay parking fees through mobile wallets or contactless transactions, eliminating the need for physical tickets.Smart parking systems are widely used in shopping malls, corporate offices, airports, and smart cities, making parking more efficient and reducing unnecessary fuel consumption caused by vehicles searching for parking spaces. By leveraging IoT technology, cloud computing, and automation, the smart parking system provides a seamless, user-friendly solution for modern urban mobility challenges.
+Key Features
+Real-Time Parking Detection – Ultrasonic or IR sensors detect vacant and occupied parking slots.
+Cloud Connectivity – Data is sent to Blynk Cloud or Firebase for real-time monitoring and remote access.
+Mobile App Integration – Users can check available parking spots, reserve slots, and receive notifications.
+Automated Access Control – Boom barriers and RFID/NFC systems allow seamless vehicle entry and exit.
