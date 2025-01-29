@@ -1,0 +1,83 @@
+#include <Wire.h>
+#include <ESP8266WiFi.h> // ESP8266 WiFi library
+#define BLYNK_TEMPLATE_ID "TMPL36zhg2ZEx"
+#define BLYNK_TEMPLATE_NAME "sensor"
+#include <BlynkSimpleEsp8266.h> // Blynk library for ESP8266
+
+// Define sensor pins
+#define SENSOR1 D1  
+#define SENSOR2 D2  
+#define SENSOR3 D3  
+#define SENSOR4 D4  
+
+BlynkTimer timer;
+WidgetLED LED1(V0); // Virtual LED for SENSOR1
+WidgetLED LED2(V1); // Virtual LED for SENSOR2
+WidgetLED LED3(V2); // Virtual LED for SENSOR3
+WidgetLED LED4(V3); // Virtual LED for SENSOR4
+
+char auth[] = "Gf29JlfBmkBs28cF7gk87-ooQ65xOLR9"; // Blynk authentication token
+char ssid[] = "Airtel_x_EXT"; // WiFi SSID
+char pass[] = "8884179216";   // WiFi Password
+
+void setup() {
+  Serial.begin(115200);
+  Blynk.begin(auth, ssid, pass, "blynk.cloud", 80);
+  
+  // Set sensor pins as input with pull-up resistors
+  pinMode(SENSOR1, INPUT_PULLUP);
+  pinMode(SENSOR2, INPUT_PULLUP);
+  pinMode(SENSOR3, INPUT_PULLUP);
+  pinMode(SENSOR4, INPUT_PULLUP);
+
+  // Set a timer to call the sensor function every 200ms
+  timer.setInterval(200L, sensor);
+}
+
+void sensor() {
+  int L1 = digitalRead(SENSOR1);
+  int L2 = digitalRead(SENSOR2);
+  int L3 = digitalRead(SENSOR3);
+  int L4 = digitalRead(SENSOR4);
+
+  // Sensor 1
+  if (L1 == 1) {
+    Serial.println("IR Sensor 1 detected");
+    LED1.on();
+  } else {
+    Serial.println("Sensor 1 == All clear");
+    LED1.off();
+  }
+
+  // Sensor 2
+  if (L2 == 1) {
+    Serial.println("IR Sensor 2 detected");
+    LED2.on();
+  } else {
+    Serial.println("Sensor 2 == All clear");
+    LED2.off();
+  }
+
+  // Sensor 3
+  if (L3 == 1) {
+    Serial.println("IR Sensor 3 detected");
+    LED3.on();
+  } else {
+    Serial.println("Sensor 3 == All clear");
+    LED3.off();
+  }
+
+  // Sensor 4
+  if (L4 == 1) {
+    Serial.println("IR Sensor 4 detected");
+    LED4.on();
+  } else {
+    Serial.println("Sensor 4 == All clear");
+    LED4.off();
+  }
+}
+
+void loop() {
+  Blynk.run();
+  timer.run(); // Run the timer
+}
